@@ -218,6 +218,7 @@ Ejecutar
     [Configurar parameters.yml]
     php app/console doctrine:schema:update --force
     php app/console cache:clear
+    php app/console fos:user:create --super-admin
     
 #### Instalando node y uglifycss / uglifyjs
 
