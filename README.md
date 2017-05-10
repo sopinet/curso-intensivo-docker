@@ -205,11 +205,27 @@ How can I use Symfony's console?
     ```bash
     $ docker-compose run --rm php php app/console
     ```
+    
+#### Desplegando Symfony
+
+Desde el contenedor PHP:
+ 
+    docker-compose exec php bash
+
+Ejecutar
+
+    composer install
+    [Configurar parameters.yml]
+    php app/console doctrine:schema:update --force
+    php app/console cache:clear
+    
 #### Instalando node y uglifycss / uglifyjs
 
 Desde el contenedor PHP:
  
     docker-compose exec php bash
+
+Ejecutar   
    
     NODE:
     # La ruta node será /usr/bin/nodejs
