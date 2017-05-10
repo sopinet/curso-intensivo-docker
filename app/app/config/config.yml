@@ -36,7 +36,7 @@ assetic:
     debug:          "%kernel.debug%"
     use_controller: false
     bundles:        [ ]
-    # node: "%node_binary%"
+    node: "%node_binary%"
     filters:
         uglifyjs2:
            # the path to the uglifyjs executable
