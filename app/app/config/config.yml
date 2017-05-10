@@ -91,3 +91,9 @@ monolog:
             type: stream
             path: "%kernel.logs_dir%/logListener.log"
             channels: [listener]
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "xvfb-run wkhtmltopdf"
+        options:    []
