@@ -12,7 +12,7 @@ parameters:
     mailer_password: null
     locale: en
     secret: sdgdgssgoisdgoihsghoisdhgoñisdhg
-    uglifyjs_binary: /root/.nvm/versions/node/v6.10.3/lib/node_modules/uglify-js/bin/uglifyjs
-    uglifycss_binary: /root/.nvm/versions/node/v6.10.3/lib/node_modules/uglifycss/uglifycss
-    node_binary: /root/.nvm/versions/node/v6.10.3/bin/node
+    uglifyjs_binary: /usr/lib/node_modules/uglify-js2/bin/uglifyjs2
+    uglifycss_binary: /usr/lib/node_modules/uglifycss/uglifycss
+    node_binary: /usr/bin/nodejs
 

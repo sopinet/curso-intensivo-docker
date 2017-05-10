@@ -16,5 +16,6 @@ parameters:
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    uglifyjs_binary:   /usr/local/bin/uglifyjs
-    uglifycss_binary:   /usr/local/bin/uglifycss
+    uglifyjs_binary: /usr/lib/node_modules/uglify-js2/bin/uglifyjs2
+    uglifycss_binary: /usr/lib/node_modules/uglifycss/uglifycss
+    node_binary: /usr/bin/nodejs
