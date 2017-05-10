@@ -35,6 +35,11 @@ class GenerateCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $context = $this->getContainer()->get('router')->getContext();
+        $context->setHost('localhost');
+        $context->setScheme('http');
+        $context->setBaseUrl('/var/www/web');
+
         $cardId = $input->getArgument('cardId');
         $format = $input->getOption('format');
 
