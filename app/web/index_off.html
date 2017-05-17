@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Curso-Intensivo | Upgrading</title>
+</head>
+<body class="gray-bg">
+
+<div class="middle-box text-center animated fadeInDown">
+    <h2>Upgrading</h2>
+    <h3 class="font-bold">We are upgrading</h3>
+
+    <div class="error-desc">
+        We are updating the platform, come back after a few minutes
+        <br/>
+        Estamos actualizando, vuelva pasados unos minutos
+        <hr/>
+        <div class="progress">
+            <div id="porcentage" class="progress-bar progress-bar-striped active" role="progressbar"
+                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+            </div>
+        </div>
+        <a id="tryAgain" style="display:none" class="btn btn-primary btn-block" href="/">¿Try Again?</a>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    var cache = 0;
+    function refreshPorc() {
+        $.ajax({
+            // la URL para la petición
+            url: 'readDeploy.php',
+            success: function (data) {
+                data = parseFloat(data);
+                if (data == 100) {
+                    $("#tryAgain").fadeIn();
+                }
+                console.log(data);
+                var actual = parseFloat($("#porcentage").attr('aria-valuenow'));
+                if (actual == cache && data <= actual) {
+                    data = actual + 0.3;
+                }
+                cache = data;
+                $("#porcentage").css('width', data+"%").attr('aria-valuenow', data);
+                setTimeout(function() {
+                    refreshPorc();
+                }.bind(this), 1000);
+            }
+        });
+    }
+    $( document ).ready(function() {
+        $.ajaxSetup({ cache: false });
+        refreshPorc();
+    });
+</script>
+
+</body>
+
+</html>

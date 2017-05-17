@@ -7,7 +7,7 @@ services:
   nginx:
     image: ${PROJECT_NAMESPACE}/${REPOSITORY_NAME}-nginx:latest
     ports:
-      - "80:80"
+      - "81:80"
     volumes:
       - ./app:/var/www
       - ./sites:/etc/nginx/conf.d

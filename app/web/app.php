@@ -1,5 +1,11 @@
 <?php
 
+# Check Upgrading...
+if (file_exists("../web/deploy.porc")) {
+    header('Location: ../index_off.html');
+    exit();
+}
+
 use Symfony\Component\ClassLoader\ApcClassLoader;
 use Symfony\Component\HttpFoundation\Request;
 
